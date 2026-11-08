@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TOGETSU｜自分を掘り、自分を発信し、自分の商品を作る</title>
+<meta name="description" content="AIとの対話で自分を掘る、無料の21日間プログラム。21日分の動画・PDF・プロンプトをLINEでまとめてお届けします。">
+<meta property="og:title" content="TOGETSU｜自分を掘り、自分を発信し、自分の商品を作る">
+<meta property="og:description" content="AIとの対話で自分を掘る、無料の21日間プログラム。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1f2430;
+    --sub:#5b6170;
+    --paper:#f7f4ee;
+    --paper2:#efeae0;
+    --night:#1c2238;
+    --moon:#e9dcb8;
+    --accent:#3d5a80;
+    --line:#06c755;
+    --rule:#d9d2c3;
+    --maxw:720px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+    color:var(--ink);background:var(--paper);
+    line-height:2;font-size:16px;letter-spacing:.03em;
+    -webkit-font-smoothing:antialiased;
+  }
+  .serif{font-family:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  section{padding:84px 0;border-top:1px solid var(--rule)}
+  section.alt{background:var(--paper2)}
+  h2{
+    font-family:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif;
+    font-size:clamp(22px,4.6vw,30px);line-height:1.6;font-weight:700;
+    margin-bottom:32px;letter-spacing:.05em;
+  }
+  h3{font-size:18px;font-weight:700;margin:36px 0 10px;line-height:1.7}
+  p{margin-bottom:1.3em}
+  .lead{font-size:17px}
+  .muted{color:var(--sub);font-size:14px}
+  .kicker{display:block;font-size:12px;letter-spacing:.3em;color:var(--accent);margin-bottom:14px;font-weight:500}
+
+  /* hero */
+  .hero{
+    background:radial-gradient(circle at 86% 9%, rgba(233,220,184,.9) 0 18px, rgba(233,220,184,.12) 19px 46px, transparent 47px),
+               linear-gradient(180deg,#1c2238 0%,#27304d 70%,#33405f 100%);
+    color:#f3efe6;padding:96px 0 88px;border:none;text-align:center;
+  }
+  .hero .logo{font-family:"Noto Serif JP",serif;font-size:clamp(40px,10vw,64px);letter-spacing:.18em;font-weight:700;margin-bottom:6px}
+  .hero .yomi{font-size:13px;letter-spacing:.4em;color:var(--moon);margin-bottom:36px}
+  .hero .catch{font-family:"Noto Serif JP",serif;font-size:clamp(18px,4.4vw,24px);line-height:2;margin-bottom:28px}
+  .hero .tags{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+  .hero .tags span{border:1px solid rgba(233,220,184,.6);color:var(--moon);font-size:13px;padding:4px 14px;border-radius:999px}
+  .bridge{width:min(420px,90%);height:auto;display:block;margin:0 auto 36px;opacity:.85}
+
+  /* LINE button */
+  .cta{text-align:center}
+  .btn-line{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--line);color:#fff;text-decoration:none;font-weight:700;
+    font-size:17px;padding:16px 36px;border-radius:999px;
+    box-shadow:0 6px 18px rgba(6,199,85,.28);transition:transform .15s, box-shadow .15s;
+  }
+  .btn-line:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(6,199,85,.34)}
+  .btn-line svg{width:22px;height:22px;flex:none}
+  .cta .note{display:block;margin-top:12px;font-size:13px;color:inherit;opacity:.8}
+
+  /* video */
+  .video{position:relative;width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:#232a40;margin:8px 0 18px}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#cfc8b6;font-size:14px;text-align:center;padding:20px}
+
+  /* lists */
+  .pains{list-style:none;margin:8px 0 28px}
+  .pains li{padding:10px 0 10px 26px;position:relative;border-bottom:1px dashed var(--rule)}
+  .pains li::before{content:"";position:absolute;left:4px;top:24px;width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.5}
+
+  .cycle{display:grid;gap:14px;margin:12px 0 24px}
+  .cycle .item{background:#fff;border:1px solid var(--rule);border-radius:10px;padding:20px 22px}
+  .cycle .num{font-family:"Noto Serif JP",serif;color:var(--accent);font-weight:700;margin-right:8px}
+  .cycle .item b{font-size:17px}
+  .cycle .item p{margin:8px 0 0;font-size:15px;color:var(--sub)}
+  .cycle .opt{font-size:12px;border:1px solid var(--accent);color:var(--accent);border-radius:4px;padding:1px 7px;margin-left:8px;vertical-align:2px}
+
+  .chapters{display:grid;gap:16px;margin-top:8px}
+  .chapter{background:#fff;border-left:4px solid var(--accent);border-radius:6px;padding:20px 22px}
+  .chapter .day{font-size:12px;letter-spacing:.2em;color:var(--accent);font-weight:700}
+  .chapter h3{margin:4px 0 8px;font-size:18px}
+  .chapter p{margin:0;font-size:15px;color:var(--sub)}
+
+  .principles{counter-reset:p;list-style:none}
+  .principles li{counter-increment:p;padding:18px 0 18px 54px;position:relative;border-bottom:1px solid var(--rule)}
+  .principles li::before{content:counter(p);position:absolute;left:0;top:16px;font-family:"Noto Serif JP",serif;font-size:30px;color:var(--accent);line-height:1}
+  .principles b{display:block;font-size:17px;margin-bottom:4px}
+  .principles span{color:var(--sub);font-size:15px}
+
+  .steps{list-style:none;margin:8px 0 28px}
+  .steps li{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--rule)}
+  .steps .n{width:36px;height:36px;border-radius:50%;background:var(--night);color:var(--moon);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;margin-top:4px}
+  .steps b{display:block}
+  .steps span{color:var(--sub);font-size:15px}
+
+  .box{background:#fff;border:1px solid var(--rule);border-radius:10px;padding:24px 24px 8px;margin:20px 0}
+  .box.min{border:2px solid var(--accent)}
+  .box h3{margin-top:0}
+
+  .fit{display:grid;gap:16px;grid-template-columns:1fr}
+  @media(min-width:640px){.fit{grid-template-columns:1fr 1fr}}
+  .fit .col{background:#fff;border:1px solid var(--rule);border-radius:10px;padding:22px}
+  .fit h3{margin:0 0 10px;font-size:16px}
+  .fit ul{padding-left:1.2em;font-size:15px}
+  .fit li{margin-bottom:6px}
+  .fit .no h3{color:var(--sub)}
+
+  .profile{display:grid;gap:22px;align-items:start}
+  .profile .name{font-family:"Noto Serif JP",serif;font-size:22px;font-weight:700}
+  .profile .role{color:var(--accent);font-size:14px;margin-bottom:14px}
+  .profile a{color:var(--accent)}
+
+  details{background:#fff;border:1px solid var(--rule);border-radius:8px;margin-bottom:10px}
+  summary{cursor:pointer;padding:16px 44px 16px 18px;font-weight:700;list-style:none;position:relative;line-height:1.7}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:"Q.";color:var(--accent);margin-right:8px;font-family:"Noto Serif JP",serif}
+  summary::after{content:"+";position:absolute;right:18px;top:12px;font-size:22px;color:var(--accent);font-weight:400}
+  details[open] summary::after{content:"−"}
+  details .a{padding:0 18px 16px 18px;font-size:15px;color:var(--sub)}
+  details .a p{margin-bottom:.6em}
+
+  .closing{background:linear-gradient(180deg,#27304d,#1c2238);color:#f3efe6;text-align:center;border:none}
+  .closing h2{color:#f3efe6}
+  .closing .catch{font-family:"Noto Serif JP",serif;font-size:18px;line-height:2.2;margin-bottom:36px}
+
+  footer{background:#151a2c;color:#8d93a6;text-align:center;font-size:12px;padding:28px 0}
+</style>
+</head>
+<body>
+
+<!-- ===== 1. ファーストビュー ===== -->
+<header class="hero">
+  <div class="wrap">
+    <div class="logo">TOGETSU</div>
+    <div class="yomi">とげつー</div>
+    <svg class="bridge" viewBox="0 0 420 70" aria-hidden="true">
+      <path d="M0 52 H420" stroke="#e9dcb8" stroke-opacity=".45" stroke-width="1"/>
+      <path d="M10 40 Q210 6 410 40" fill="none" stroke="#e9dcb8" stroke-width="2"/>
+      <g stroke="#e9dcb8" stroke-opacity=".7" stroke-width="1.5">
+        <path d="M40 34 V52"/><path d="M80 27 V52"/><path d="M120 22 V52"/><path d="M160 19 V52"/>
+        <path d="M200 17 V52"/><path d="M240 18 V52"/><path d="M280 21 V52"/><path d="M320 25 V52"/><path d="M360 31 V52"/><path d="M395 37 V52"/>
+      </g>
+      <path d="M0 62 Q105 58 210 62 T420 62" fill="none" stroke="#e9dcb8" stroke-opacity=".25" stroke-width="1"/>
+    </svg>
+    <p class="catch">自分を掘り、<br>自分を発信し、<br>自分の商品を作る。</p>
+    <div class="tags"><span>無料</span><span>21日間</span><span>AI対話 × Threads</span></div>
+    <div class="cta">
+      <a class="btn-line" href="https://lin.ee/6VbtG1E" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.5s5.9-3.5 8-6C21.4 14.2 22 12.7 22 11c0-4.4-4.5-8-10-8z"/></svg>
+        LINEで受け取る（無料）
+      </a>
+      <span class="note">21日分の動画・PDF・プロンプトがまとめて届きます</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===== 2. 説明動画 ===== -->
+<section>
+  <div class="wrap">
+    <span class="kicker">NOW</span>
+    <h2>TOGETSUは、今こういう形になりました</h2>
+    <p>以前はクライアントさん向けに、1日ずつ課題に取り組んでもらって、報告をもらったら次の動画を送る、という形でやっていました。</p>
+    <p>今は、21日分の動画とPDFを、LINEに登録した時点でまとめてお渡ししています。順番も、ペースも、あなたの自由です。</p>
+    <!-- ▼ YouTubeにアップしたら、下の .ph を消して iframe のコメントを外し、VIDEO_ID を差し替える -->
+    <div class="video">
+      <!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="TOGETSUの変更点について" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe> -->
+      <div class="ph">変更点の説明動画（準備中）</div>
+    </div>
+    <p class="muted">細かいことは、この動画で話しています。</p>
+  </div>
+</section>
+
+<!-- ===== 3. 問題提起 ===== -->
+<section class="alt">
+  <div class="wrap">
+    <h2>「何を発信すればいいかわからない」のは、<br>発信方法を知らないから？</h2>
+    <ul class="pains">
+      <li>毎日投稿しよう、ジャンルを決めよう。言われたとおりにやっても、手が止まる</li>
+      <li>プロフィールに「強み」を書こうとして、何も出てこない</li>
+      <li>商品を考えようとすると、「自分なんかに」でブレーキがかかる</li>
+    </ul>
+    <p>ノウハウが足りないんじゃない。<br>「自分は何を伝えたいのか」が、まだ言葉になっていないだけ。</p>
+    <p>軸がないまま誰かの成功例を真似すると、やればやるほど自分から離れていきます。</p>
+    <p class="lead serif">だから、先に自分を掘る。</p>
+  </div>
+</section>
+
+<!-- ===== 4. AIに答えを作らせない ===== -->
+<section>
+  <div class="wrap">
+    <h2>答えをAIに作らせる講座では<br>ありません</h2>
+    <p>「バズる投稿を10個作って」とAIに頼めば、それっぽい答えはすぐに出てきます。</p>
+    <p>でもそれは、AIの答えであって、あなたの答えじゃない。</p>
+    <p>TOGETSUでは、AIを「答えを出す道具」ではなく、<b>自分を映す鏡</b>として使います。問いを投げてもらい、自分で答える。その繰り返しの中で、自分の言葉が見つかっていきます。</p>
+
+    <h3>TOGETSUの流れ</h3>
+    <div class="cycle">
+      <div class="item"><span class="num">①</span><b>自分を掘る</b><p>経験、好き・嫌い、違和感、乗り越えてきたこと。小さな感情まで、対話で一つずつ掘っていきます。</p></div>
+      <div class="item"><span class="num">②</span><b>自分の言葉にする</b><p>ぼんやりした感覚に言葉がつくと、「だからあの時、違和感があったのか」が見えてきます。</p></div>
+      <div class="item"><span class="num">③</span><b>Threadsで発信する</b><span class="opt">発信したい人だけ</span><p>完成された専門家である必要はありません。日々の気づきや、昔の自分へのメッセージで十分です。</p></div>
+      <div class="item"><span class="num">④</span><b>反応から、さらに自分を知る</b><span class="opt">発信したい人だけ</span><p>自分にとって当たり前だった経験が、誰かにとっては価値になる。それは、反応をもらって初めてわかります。</p></div>
+    </div>
+    <p>そして最後に、「自分の商品」の種を見つけます。</p>
+    <p class="muted">※③④は、発信もしてみたい人向けです。自分を知るところまでで終わっても、まったく問題ありません。</p>
+  </div>
+</section>
+
+<!-- ===== 5. 21日間の中身 ===== -->
+<section class="alt" id="curriculum">
+  <div class="wrap">
+    <span class="kicker">CURRICULUM</span>
+    <h2>21日間の中身</h2>
+    <div class="chapters">
+      <div class="chapter"><div class="day">DAY 1 – 10</div><h3>第1章　まず、自分を知る</h3><p>お金の心配がなかったら何をしたいか。子どもの頃の願い。夢中になったこと、得意なこと、違和感、何度も考えてしまうテーマ。乗り越えてきた経験、人間関係、仕事に求めるもの。</p></div>
+      <div class="chapter"><div class="day">DAY 11 – 14</div><h3>第2章　自分を止めているものを見る</h3><p>インナーチャイルド、お金の価値観や思い込み。そして「理想の自分なら、どう選ぶか」という基準。</p></div>
+      <div class="chapter"><div class="day">DAY 15 – 18</div><h3>第3章　自分を発信する</h3><p>誰に向けて、何を発信するか。Threadsのプロフィールと、自分に合った発信スタイル。AIに人格を作らせず、自分を素材にします。</p></div>
+      <div class="chapter"><div class="day">DAY 19 – 21</div><h3>第4章　自分の商品を見つける</h3><p>誰の、どんな悩みを助けられるか。相談・講座・教材などの商品案を考え、21日間を振り返って、これからを言葉にします。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. 大事にしていること ===== -->
+<section>
+  <div class="wrap">
+    <h2>大事にしていること</h2>
+    <ol class="principles">
+      <li><b>一度に、一つずつ問いかける</b><span>質問を宿題のように並べません。一問ずつ深めていくと、思ってもみなかった場所にたどり着くことがあります。</span></li>
+      <li><b>無理にポジティブへ持っていかない</b><span>どんな感情も、書き換えるべきものではありません。まずは「なぜそう感じるのか」を見ます。</span></li>
+      <li><b>AIに人生のハンドルを渡さない</b><span>AIは、自分の感覚を取り戻すために使うもの。最後に選ぶのは、いつもあなたです。</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== 7. なぜAI / なぜThreads ===== -->
+<section class="alt">
+  <div class="wrap">
+    <h2>なぜAIなのか。<br>なぜThreadsなのか。</h2>
+    <h3>AIなら、人に話しにくいことも扱える</h3>
+    <p>小さな違和感や、人には言いにくいこと。AIなら、いつでも、何度でも付き合ってくれます。</p>
+    <p>ただし、AIは「あなたよりあなたを知っている存在」ではありません。あくまで、自己理解の相棒です。</p>
+    <h3>発信すると、ノートでは見えないものが見える</h3>
+    <p>自己分析はノートでもできます。でも、言葉を外に出して反応をもらうと、自分だけでは気づけなかったことが見えてきます。</p>
+    <p>発信は、承認をもらうためだけのものじゃない。自分を知るためにも使えます。</p>
+    <p class="muted">※Threadsへの投稿は自由です。投稿して僕をタグ付けしてくれたら、見に行きます。</p>
+  </div>
+</section>
+
+<!-- ===== 8. 進め方 ===== -->
+<section id="how">
+  <div class="wrap">
+    <span class="kicker">HOW TO</span>
+    <h2>進め方</h2>
+    <ol class="steps">
+      <li><div class="n">1</div><div><b>LINEに登録する</b><span>21日分の動画・PDF・プロンプトがまとめて届きます。</span></div></li>
+      <li><div class="n">2</div><div><b>気になるところから始める</b><span>DAY1から順番でもいいし、気になる日だけつまみ食いでもOK。</span></div></li>
+      <li><div class="n">3</div><div><b>ChatGPTと対話する</b><span>プロンプトを貼って、出てきた問いに答えていくだけ。動画は僕が実際に取り組んでいる様子なので、見なくても進められます。</span></div></li>
+      <li><div class="n">4</div><div><b>発信したくなったら、Threadsへ</b><span>対話でまとまった言葉を投稿してみる。ここは任意です。</span></div></li>
+    </ol>
+
+    <div class="box min">
+      <h3>迷ったら、これだけでいい</h3>
+      <p>PDFを開いて、その日のプロンプトをChatGPTに貼る。<br>出てきた問いに、正直に答える。</p>
+      <p>課題の提出も、投稿の義務もありません。</p>
+    </div>
+
+    <div class="box">
+      <h3>必要なもの</h3>
+      <p>・ChatGPTのアカウント（無料版でOK）<br>・Threadsのアカウント（発信もしてみたい人だけ）</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 9. 向き不向き ===== -->
+<section class="alt">
+  <div class="wrap">
+    <h2>向いている人、<br>向いていない人</h2>
+    <div class="fit">
+      <div class="col">
+        <h3>こんな人に</h3>
+        <ul>
+          <li>今に大きな不満はない。でも、満足もしていない</li>
+          <li>自分の強みを、うまく言葉にできない</li>
+          <li>人の真似をすることに、疲れてきた</li>
+          <li>外の正解じゃなく、自分の感覚で選びたい</li>
+        </ul>
+      </div>
+      <div class="col no">
+        <h3>あまり向いていない人</h3>
+        <ul>
+          <li>すぐ使えるテンプレートだけが欲しい</li>
+          <li>即効性のあるノウハウだけを知りたい</li>
+          <li>AIに全部任せたい</li>
+          <li>正解を、誰かに決めてほしい</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 10. 作った人・名前 ===== -->
+<section>
+  <div class="wrap">
+    <span class="kicker">ABOUT</span>
+    <h2>この講座を作った人</h2>
+    <div class="profile">
+      <div>
+        <div class="name">天野トウキ</div>
+        <div class="role">伴走型コンサルタント（スピリチュアル・自己理解・事業設計）</div>
+        <p>答えが増えるほど、「自分はどうしたいのか」がわからなくなる。たくさんの人と向き合ってきて、何度もそう感じてきました。</p>
+        <p>僕が大事にしているのは、誰かの正解よりも、自分で選べること。</p>
+        <p>自分を掘る。<br>自分の言葉で発信する。<br>自分の手で、商品を作る。</p>
+        <p>AIから答えをもらうんじゃなく、AIを使って自分に戻る。TOGETSUは、そのための仕組みです。</p>
+        <p class="muted">note：<a href="https://note.com/walkun" target="_blank" rel="noopener">note.com/walkun</a></p>
+      </div>
+    </div>
+
+    <h3 class="serif" style="margin-top:56px;font-size:20px">TOGETSUという名前について</h3>
+    <p>漢字で書くと「渡月」。京都・嵐山にかかる、渡月橋からとっています。</p>
+    <p>今いる場所から、まだ見たことのない場所へ。これまでの自分から、少し違う次元の自分へ。その間にかかる橋になれたら、と思って名づけました。</p>
+    <p class="muted">（実はもうひとつ、裏の意味があります。それは21日間の中で。）</p>
+  </div>
+</section>
+
+<!-- ===== 11. 21日後 ===== -->
+<section class="alt">
+  <div class="wrap">
+    <h2>21日後に目指すところ</h2>
+    <p>21日で商品が必ず売れる、とは約束しません。</p>
+    <p>目指すのは、<b>自分が何者なのかを、自分の言葉で話せること</b>。そして、<b>誰に何を届けたいのか、その輪郭が見えていること</b>。</p>
+    <p>そこまで来れば、もう「誰かの真似」から始めなくてよくなります。</p>
+  </div>
+</section>
+
+<!-- ===== 12. FAQ ===== -->
+<section id="faq">
+  <div class="wrap">
+    <span class="kicker">FAQ</span>
+    <h2>よくある質問</h2>
+
+    <details><summary>本当に無料ですか？</summary><div class="a"><p>無料です。できるだけ多くの人に、自分と深く対話する体験をしてほしくて、無料にしています。受け取ったあとに、有料サービスを申し込む必要もありません。</p></div></details>
+
+    <details><summary>課題は提出するんですか？</summary><div class="a"><p>提出は不要です。好きな順番で、自分のペースで進めてください。</p></div></details>
+
+    <details><summary>毎日やらないとダメですか？</summary><div class="a"><p>21日間は、習慣にするための目安です。早く終わらせることが目的ではないので、疲れている日は休んでください。</p></div></details>
+
+    <details><summary>1日どのくらいかかりますか？</summary><div class="a"><p>対話の深さによります。15〜30分で終わる日もあれば、話が止まらなくなる日もあります。</p></div></details>
+
+    <details><summary>ChatGPTをほとんど使ったことがありません</summary><div class="a"><p>大丈夫です。文字が打てれば十分です。こちらで用意したプロンプトを貼って進めます。無料版でも参加できます。</p></div></details>
+
+    <details><summary>Threadsを使ったことがありません</summary><div class="a"><p>大丈夫です。アカウントの作り方やプロフィールの考え方は、DAY15〜18の動画とPDFに入っています。そもそも投稿は自由なので、自分を知るためだけに使ってもかまいません。</p></div></details>
+
+    <details><summary>顔出しは必要ですか？</summary><div class="a"><p>不要です。発信するかどうか、どう発信するかも、あなたが選べます。</p></div></details>
+
+    <details><summary>完走したら特典はありますか？</summary><div class="a"><p>今はありません。動画の中で特典の話をしているところがありますが、クライアントさん向けに提供していた頃の名残です。</p></div></details>
+
+    <details><summary>内容について質問できますか？</summary><div class="a"><p>TOGETSUの内容についての個別の質問は、受け付けていません。TOGETSUのLINEは、動画やPDFをお届けするための送信専用です。</p><p>YouTubeで取り上げてほしいテーマのリクエストは、天野トウキのLINE公式アカウントで受け付けています。</p></div></details>
+
+    <details><summary>21日で商品は完成しますか？</summary><div class="a"><p>必ず完成するとは限りません。目指すのは、「誰に、何を届けられるか」という種を見つけることです。</p></div></details>
+
+    <details><summary>強みなんて、ない気がします</summary><div class="a"><p>強みは、本人にとって当たり前すぎて気づけないことがほとんどです。それを、AIとの対話で掘り起こしていきます。</p></div></details>
+
+    <details><summary>AIに依存しませんか？</summary><div class="a"><p>TOGETSUでは、AIに答えを決めてもらう使い方はしません。AIは自分と対話するための相手で、決めるのはあなたです。</p></div></details>
+
+    <details><summary>ネガティブなことを話してもいいですか？</summary><div class="a"><p>もちろんです。無理に前向きに変える必要はありません。</p></div></details>
+  </div>
+</section>
+
+<!-- ===== 13. クロージング ===== -->
+<section class="closing">
+  <div class="wrap">
+    <h2>答えは、外ではなく<br>自分の中にある。</h2>
+    <p class="catch">自分を掘り、自分を発信し、自分の商品を作る。<br>ここから、次の自分へ渡ってみませんか。</p>
+    <div class="cta">
+      <a class="btn-line" href="https://lin.ee/6VbtG1E" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.5s5.9-3.5 8-6C21.4 14.2 22 12.7 22 11c0-4.4-4.5-8-10-8z"/></svg>
+        LINEで受け取る（無料）
+      </a>
+      <span class="note">登録すると、21日分がまとめて届きます</span>
+    </div>
+  </div>
+</section>
+
+<footer>© 天野トウキ　TOGETSU</footer>
+
+</body>
+</html>
